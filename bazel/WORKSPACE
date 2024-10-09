@@ -1,0 +1,14 @@
+workspace(name = "test")
+
+load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
+
+http_archive(
+    name = "rules_compdb",
+    integrity = "sha256-cCMq3aYeiaQZK+Q7RxnTUxbtcVlGbQq089oOyx+/ALI=",
+    strip_prefix = "bazel-compilation-database-fa872dd80742b3dccd79a711f52f286cbde33676",
+    urls = ["https://github.com/grailbio/bazel-compilation-database/archive/fa872dd80742b3dccd79a711f52f286cbde33676.tar.gz"],
+)
+
+load("@rules_compdb//:deps.bzl", "rules_compdb_deps")
+
+rules_compdb_deps()
